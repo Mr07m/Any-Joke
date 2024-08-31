@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Joke Generator | by Mahi Rathod</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="shortcut icon" href="./img/lauhing.png" type="image/x-icon">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"      
+    />
+    <style>
+        @media (min-width: 768px) and (max-width: 960px) {
+            .container{
+                width: 50%;
+            }
+            .joke-feild{
+                width: 400px;
+            }
+           
+        }
+        @media (min-width: 960px) and (max-width: 1140px) {
+            .container{
+                width: 50%;
+            }
+            .joke-feild{
+                width: 400px;
+            }
+           
+        }
+
+        @media (min-width: 1140px) and (max-width: 1320px ) {
+            .container{
+                width: 50%;
+            }
+            .joke-feild{
+                width: 400px;
+            }
+           
+        }
+        
+    </style>
+  </head>
+
+  <body class="bg-warning">
+    <header>
+      <!-- place navbar here -->
+    </header>
+    <main>
+      <div class="container-md text-center my-5 d-flex justify-content-center align-items-center">
+        <div class="joke-feild bg-dark w-100 rounded">
+          <div class="row justify-content-center align-items-center g-2">
+            <div class="col-12">
+              <div class="lag-img py-md-3 py-sm-2 py-2 ">
+                <img src="./img/lauhing.png"  class="w-25 img-fluid py-md-3 py-sm-2 py-1" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center align-items-center g-2">
+            <div class="col-12">
+              <div class="joke py-md-1 py-sm-1 py-2">
+                <p class="joke-text text-white px-3"></p>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center align-items-center g-2">
+            <div class="col-12">
+              <div class="joke-btn py-md-1 py-sm-1 py-0">
+                <button class="btn btn-warning my-3 btn-joke">Get Random Joke</button> 
+              </div>
+            </div>
+          </div>
+        </div>
+    
+                           
+      </div>
+    </main>
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        const jokerContainer = document.querySelector(".joke-text");
+        const jokeBtn = document.querySelector(".btn-joke");
+        const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&type=single";
+
+        let getJoke = () =>{
+            fetch(url)
+            .then(data => data.json())
+            .then(item => {
+                jokerContainer.textContent = `${item.joke}`;
+            });
+            
+        }
+
+        jokeBtn.addEventListener('click',getJoke);
+    
+
+    </script>
+  </body>
+</html>
